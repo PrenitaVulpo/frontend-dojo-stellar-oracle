@@ -37,24 +37,17 @@ export default function PriceTable() {
 	}, [timestamp]);
 
 	return (
-		<div className="flex flex-col items-center justify-center text-neon-green font-mono bg-transparent mb-8">
-			<h1 className="text-4xl font-bold mb-6 neon-text text-center">
-				BTC Ratios
-			</h1>
-			<ul className="w-80 p-4 border-2 border-neon-green bg-neon-black rounded-xl shadow-neon bg-opacity-50">
+		<div>
+			<h1>BTC Ratios</h1>
+			<ul>
 				{currencies.map((currency) => (
-					<li
-						key={currency}
-						className="py-2 px-4 text-lg neon-text border-b border-neon-green last:border-none"
-					>
+					<li key={currency}>
 						{currency}:{' '}
 						{btcRatios[currency] ? `${btcRatios[currency]} BTC` : 'Loading...'}
 					</li>
 				))}
 			</ul>
-			<div className="mt-4 text-lg text-center">
-				Last Update: {timestamp || 'Loading...'}
-			</div>
+			<div>Last Update: {timestamp || 'Loading...'}</div>
 		</div>
 	);
 }
